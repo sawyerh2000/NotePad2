@@ -1,0 +1,15 @@
+NotePad App:
+
+Create local development app with flask and python to host app - DONE 
+
+Learn basics of template files and use templates to get user data and redirect user - DONE
+
+Learn to assimilate SQL database or similar database with Flask to store user data 
+
+Store user data in database to save all notes from user
+
+Implement search feature to allow user to search for notes by date  
+    +Add more search option later on 
+
+Clean up the html and add CSS to make it look clean 
+
