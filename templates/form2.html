@@ -1,4 +1,7 @@
-<h>Return to the /form page to submit response.</h>
-<form action = '/form' method = 'get'>
-<p><input type = "submit" value = "Back" /></p>
-</form>
+{% extends "layout.html" %}
+{% block content %}
+    <h>Return to the NotePad page to take Notes.</h>
+    <form align = "center" action = '/form' method = 'get'>
+    <p><input type = "submit" value = "NotePad" /></p>
+    </form>
+{% endblock content %}

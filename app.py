@@ -1,7 +1,25 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
+import sqlite3
 
 
 app = Flask(__name__) #Create an instance of the app, in this case "app"
+
+notes = [ 
+    { 
+    'author' : 'Jeremy',
+    'content' : 'Hello from the shadow realm'
+    },
+
+    {
+     'author' : 'Susan',
+     'content' : 'Hello Jeremy!'   
+    }
+
+]
+@app.route("/notes")
+def read():
+    return render_template('notes.html', notes = notes)
+
 
 
 @app.route("/form") #define a url as a decorator, in this case "/"
@@ -20,4 +38,5 @@ def data():
 
 
 
-
+if __name__ == '__main__':
+    app.run(debug=True)

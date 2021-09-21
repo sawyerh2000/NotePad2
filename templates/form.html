@@ -1,17 +1,8 @@
-<!--
-<form action="/data" method="POST">
-<p>Notes: <input type = "text" name = "Notes" /></p>
-<p><input type = "submit" value = "submit" /></p>
-</form>
--->
-<label for="Notes">Notes:</label>
-<form action="/data" method = "POST">
-<p><textarea name = 'Notes' id = "Notes" rows="15" cols="90" ></textarea></p>
-<p><input type = "submit" value = "Submit" /></p>
-</form>
-
-<style>
-    body {
-        background-color: cyan;
-    }
-</style>
+{% extends "layout.html" %}
+{% block content %}
+    <label for="Notes" style="display: block; text-align: center;">Notes:</label>
+    <form align='center' action="/data/" method = "POST">
+    <p><textarea name = 'Notes' id = "Notes" rows="15" cols="90" ></textarea></p>
+    <p><input class="btn btn-primary" type="submit" value="Submit" style="height: 35px;width:100px;"/></p>
+    </form>
+{% endblock content %}
