@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, url_for
 import sqlite3
+import sql
 
 
 app = Flask(__name__) #Create an instance of the app, in this case "app"
@@ -33,10 +34,12 @@ def data():
     if request.method =='GET': 
         return render_template("form2.html") #if it is get method: tell the user to return to /form
     if request.method == 'POST':
-        form_data = request.form 
+        form_data = "".join(request.form)
+        sql.addNotes(form_data)
         return render_template('data.html', form_data = form_data)
 
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+
