@@ -4,9 +4,11 @@ Create local development app with flask and python to host app - DONE
 
 Learn basics of template files and use templates to get user data and redirect user - DONE
 
-Learn to assimilate SQL database or similar database with Flask to store user data 
+Learn to assimilate SQL database or similar database with Flask to store user data - DONE
 
-Store user data in database to save all notes from user
+Store user data in database to save all notes from user - DONE
+
+Display saved notes on webapp - DONE
 
 
 
