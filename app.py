@@ -1,24 +1,15 @@
 from flask import Flask, render_template, request, url_for
-import sqlite3
 import sql
 
 
 app = Flask(__name__) #Create an instance of the app, in this case "app"
 
-notes = [ 
-    { 
-    'author' : 'Jeremy',
-    'content' : 'Hello from the shadow realm'
-    },
 
-    {
-     'author' : 'Susan',
-     'content' : 'Hello Jeremy!'   
-    }
 
-]
+
 @app.route("/notes")
 def read():
+    notes = sql.getNotes()
     return render_template('notes.html', notes = notes)
 
 
@@ -34,7 +25,7 @@ def data():
     if request.method =='GET': 
         return render_template("form2.html") #if it is get method: tell the user to return to /form
     if request.method == 'POST':
-        form_data = "".join(request.form)
+        form_data = request.form
         sql.addNotes(form_data)
         return render_template('data.html', form_data = form_data)
 

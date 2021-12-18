@@ -8,8 +8,5 @@ Learn to assimilate SQL database or similar database with Flask to store user da
 
 Store user data in database to save all notes from user
 
-Implement search feature to allow user to search for notes by date  
-    +Add more search option later on 
 
-Clean up the html and add CSS to make it look clean 
 
