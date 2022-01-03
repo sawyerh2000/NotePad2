@@ -23,34 +23,33 @@ def addNotes(note):
     conn = sql.connect('notes.db', check_same_thread=False)
     cursor = conn.cursor()
     now = datetime.now()
-    currtime = now.strftime("%H:%M:%S")
     today = date.today()
-    d1 = today.strftime("%d/%m/%Y")
+    curr = now.strftime("%H:%M:%S") + " " + today.strftime("%m/%d/%Y")
+    d1 = today.strftime("%m/%d/%Y")
     s = str(note)
     start=31
     end=s.index("'", 31)
-    ls =[]
-    s=s[start:end] + " - " + currtime + " " + d1
-    ls.append(s)
-    cursor.execute("""INSERT INTO Notes VALUES (?)""", ls)
+    s=s[start:end] + " - " + curr
+    cursor.execute("""INSERT INTO Notes VALUES (?)""", [s])
     conn.commit()
     conn.close()
-    ls.clear()
+
 
 
 #getNotes function to print out the database entries onto a webpage
 def getNotes():
+    notelist=[]
     conn = sql.connect('notes.db', check_same_thread=False)
     cursor = conn.cursor()
     cursor.execute("""SELECT note from Notes""")
-    notelist=cursor.fetchall()
+    curlist=cursor.fetchall()
+    for i in curlist:
+        notelist.append(i[0])
     conn.commit()
     conn.close()
-    notelist = map(stripNotes, notelist)
-    newlist = []
-    for i in notelist:
-        newlist.append(i)
-    return newlist
+    print(*notelist)
+    return notelist
+    
 
 #aid function to strip strings in notelist
 def stripNotes(words):
