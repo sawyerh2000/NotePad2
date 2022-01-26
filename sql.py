@@ -50,14 +50,3 @@ def getNotes():
     print(*notelist)
     return notelist
     
-
-#aid function to strip strings in notelist
-def stripNotes(words):
-    words=str(words)
-    words = words.strip("(,')")
-    return words
-
-
-
-
-
